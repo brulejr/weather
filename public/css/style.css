@@ -1,0 +1,100 @@
+body {
+  background-color: #f7f7f7;
+}
+
+
+body>header {
+
+}
+body>header .navbar-inner {
+	background-color: #3b5998 !important;
+	background-image: none !important;
+	border-bottom-color: #3b5998 !important;
+}
+body>header a {
+	color: #f7f7f7 !important;
+	cursor: pointer;
+	-webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+}
+body>header a:hover {
+	color: gold !important;
+}
+
+
+body>section {
+}
+body>section>.page>.sidebar>.content {
+  background: #dfe3ee;
+}
+.accordion-group {
+  border: 1px solid #3b5998;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  -moz-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px; 
+  background-color: #F8F5E1;
+}
+.accordion-heading {
+  background-color: #3b5998 !important;
+  -webkit-border-radius: 4px 4px 0px 0px;
+  -moz-border-radius: 4px 4px 0px 0px;
+  border-radius: 4px 4px 0px 0px; 
+}
+.accordion-heading>a {
+  color: #f7f7f7 !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.accordion-heading>a:hover {
+  text-decoration: none;
+}
+
+body>section>.page>.workspace>.content {
+}
+.tabbable>.nav-tabs>li>a {
+  background-color: #8b9dc3;
+  border-bottom-color: transparent;
+  color: #444444;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.tabbable>.nav-tabs>li.active>a {
+  background-color: #dfe3ee;
+  color: #444444;
+}
+.tabbable>.tab-content {
+  background-color: #dfe3ee;
+  color: #444444;
+}
+
+
+body>footer {
+  text-align: center;
+  font-size: small; 
+}
+
+
+.aboutDialog .modal-header {
+  background-color: #3b5998;
+  color: white;
+  -webkit-border-radius: 4px 4px 0px 0px;
+  -moz-border-radius: 4px 4px 0px 0px;
+  border-radius: 4px 4px 0px 0px;
+}
+
+.aboutDialog table thead {
+  background-color: #dfe3ee;
+}

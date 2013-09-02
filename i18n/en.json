@@ -1,0 +1,39 @@
+{
+
+  "about": "About",
+  "appname": "WeatherReports",
+  "title": "Weather Reports",
+
+  "AboutDialog": {
+  	"appname": "Application",
+  	"environment": "Environment",
+  	"header_property": "Property",
+  	"header_value": "Value",
+  	"license": "License",
+  	"title": "About this application...",
+  	"version": "Version"
+  },
+
+  "CitySearchForm": {
+    "title": "By City Name",
+    "streetPrompt": "Street",
+    "streetPlaceholder": "Street Address",
+    "cityPrompt": "City",
+    "cityPlaceholder": "City",
+    "statePrompt": "State",
+    "statePlaceholder": "State",
+    "btnSubmit": "Get Weather",
+    "btnReset": "Reset"
+  },
+
+  "CoordSearchForm": {
+    "title": "By Longitude / Latitude",
+    "longitudePrompt": "Longitude",
+    "longitudePlaceholder": "Longitude",
+    "latitudePrompt": "Latitude",
+    "latitudePlaceholder": "Latitude",
+    "btnSubmit": "Get Weather",
+    "btnReset": "Reset"
+  }
+
+}

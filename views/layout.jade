@@ -1,0 +1,20 @@
+doctype 5
+html(ng-app="main")
+  head
+    script(src='/vendor/angularjs/1.0.7/js/angular.js')
+    script(src='/vendor/angularjs/1.0.7/js/angular-resource.js')
+    script(src='/vendor/angular-ui/0.5.0/ui-bootstrap-tpls-0.5.0.js')
+    script(src='/vendor/angular-ui-utils/0.0.4/ui-utils.js')
+    script(src='/vendor/smart-table/Smart-Table.debug.js')
+    script(src='/js/main.js')
+    link(rel='stylesheet', href='/vendor/bootstrap/2.3.2/css/bootstrap.css')
+    link(rel='stylesheet', href='/css/layout.css')
+    link(rel='stylesheet', href='/css/style.css')
+    block head
+  body(ng-controller="PageCtrl")
+    header.navbar.navbar-inverse.navbar-fixed-top
+      block header
+    section
+      block body
+    footer.navbar.navbar-fixed-bottom
+      block footer

@@ -1,0 +1,124 @@
+html,body {
+	height: 100%;
+	width: 100%;
+	/* The html and body elements cannot have any padding or margin. */
+}
+
+body>header {
+	position: absolute;
+	height: 41px;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+body>header>.navbar-inner>.container {
+	width: auto;
+	margin-left: 10px;
+}
+
+body>section {
+	position: absolute;
+	top: 46px;
+	bottom: 20px;
+	left: 0px;
+	right: 0px;
+	overflow: hidden;
+	display: block;
+}
+body>section>.page{
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
+body>section>.page>.sidebar {
+	position: absolute;
+	left: 0px;
+	width: 20%;
+	height: 100%;
+}
+body>section>.page>.sidebar>.content {
+	position: absolute;
+	top: 2px;
+	bottom: 2px;
+	left: 4px;
+	right: 4px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 4px 4px;	
+	border: 1px solid #999999;
+	border-left: 1px solid #CCCCCC;
+	border-top: 1px solid #DFE3EE;
+}
+body>section>.page>.workspace {
+	position: absolute;
+	right: 0px;
+	width: 80%;
+	height: 100%;
+}
+body>section>.page>.workspace>.content {
+	position: absolute;
+	top: 2px;
+	bottom: 2px;
+	left: 2px;
+	right: 4px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 4px 4px;
+}
+.tabbable {
+	position: absolute;
+	bottom: 0px;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+}
+.tabbable li i.icon-remove {
+	margin-left: 8px;
+}
+
+.tabbable .nav-tabs {
+	padding-left: 7px;
+	height: 28px;
+	border-bottom: none;
+}
+.tabbable .nav-tabs li {
+	height: 28px;
+}
+.tabbable .nav-tabs li a {
+	height: 10px;
+	line-height: 12px;
+	font-size: 12px;
+}
+.tabbable li.active {	
+}
+.tabbable>.tab-content {
+	position: absolute;
+	top: 28px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	border: 1px solid #999999;
+	border-left: 1px solid #CCCCCC;
+	border-top: 1px solid #DFE3EE;
+	padding: 10px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 4px 4px;
+}
+.tabbable>.tab-content div.active {
+}
+
+
+body>footer {
+	position: absolute;
+	height: 20px;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+.ui-hide {
+	display: none;
+}
