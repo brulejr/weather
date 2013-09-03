@@ -13,6 +13,7 @@
     "jade": "*",
     "lingua": "*",
     "log4js": "*",
+    "rest": "*",
     "strong-cluster-control": "*"
   },
   "devDependencies": {

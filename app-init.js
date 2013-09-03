@@ -1,4 +1,5 @@
 // module dependencies
+var api  = require('./api/weather');
 var config = require("config").WEATHER;
 var express = require('express');
 var lingua  = require('lingua');
@@ -43,6 +44,8 @@ if ('development' == app.get('env')) {
 // route configuration
 app.get('/', routes.index);
 app.get('/view/:view', routes.view);
+
+app.get('/api/v1/weather/:latitude,:longitude', api.currentWeather);
 
 // export application configuration
 module.exports = app;
