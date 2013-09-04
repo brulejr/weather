@@ -7,14 +7,14 @@ var util = require('util');
 var client = rest.chain(mime)
                  .chain(errorCode, { code: 500 });
 
-function getWeather(latitude, longitude, res) {
+exports.currentWeather = function(latitude, longitude, request) {
   var api = util.format(
     'https://api.forecast.io/forecast/%s/%s,%s', 
     config.ForcastApiKey, latitude, longitude);
   client({ path: api }).then(
     function(response) {
       var data = response.entity;
-      res.send({
+      request.reply({
         "latitude": latitude,
         "longitude": longitude,
         "timezone": data.timezone,
@@ -37,18 +37,11 @@ function getWeather(latitude, longitude, res) {
     },
     function(response) {
       console.log(response);
-      res.send({
+      request.reply({
         "latitude": latitude,
         "longitude": longitude,
         "message": "Unable to retrieve weather due to an error"
       });
     }
   );
-};
-
-// current weather
-exports.currentWeather = function(req, res) {
-	var longitude = req.params.longitude;
-	var latitude = req.params.latitude;
-	getWeather(latitude, longitude, res);
 };

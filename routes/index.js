@@ -1,5 +1,6 @@
-var i18n = require("i18next");
+var i18n = require('i18next');
 var pjson = require('../package.json');
+var weather = require('../api/weather.js');
 
 // configure i18n
 i18n.init({
@@ -18,16 +19,24 @@ var viewMetadata = {
     version: pjson.version
 };
 
-var rootHandler = function (req, res) {
-  req.reply.view('index', viewMetadata);
+var rootHandler = function (request) {
+  request.reply.view('index', viewMetadata);
 };
 
 var viewHandler = function (request) {
   request.reply.view('client/' + request.params.view, viewMetadata);
 };
 
+var weatherHandler = function (request) {
+  var parts = request.params.coordinates.split(',');
+  var latitude = parts[0];
+  var longitude = parts[1];
+  weather.currentWeather(latitude, longitude, request);
+};
+
 module.exports = [
     { method: 'GET', path: '/', config: { handler: rootHandler } },
+    { method: 'GET', path: '/api/v1/weather/{coordinates}', config: {  handler: weatherHandler }},
     { method: 'GET', path: '/view/{view}', config: { handler: viewHandler } },
     { method: 'GET', path: '/{path*}', config: { 
     	  handler: { 
