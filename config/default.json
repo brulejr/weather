@@ -1,5 +1,6 @@
 {
 	"WEATHER": {
-		"defaultPort": 3000
+		"debugPort": 3000,
+		"serverPort": 4000
 	}
 }
