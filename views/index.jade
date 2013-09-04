@@ -1,28 +1,28 @@
 extends layout
 
 block head
-  title #{lingua.title} <#{env}>
+  title #{t('title')} <#{env}>
 
 block header
   div.navbar-inner
     div.container
-      a.brand(ref="#",ng-click="tabs[0].active = true") #{lingua.appname}
+      a.brand(ref="#",ng-click="tabs[0].active = true") #{t('appname')}
       div.nav-collapse.collapse
         ul.nav.pull-right
           li.about-menu
-            a(href="#",ng-click="openAboutDialog()") #{lingua.about}
+            a(href="#",ng-click="openAboutDialog()") #{t('about')}
 
 block footer
-  span.muted.credit #{lingua.appname} - v#{version}
+  span.muted.credit #{t('appname')} - v#{version}
 
 block body
   div.page
     div.sidebar
       div.content
        accordion
-         accordion-group(heading="#{lingua.CitySearchForm.title}")
+         accordion-group(heading="#{t('CitySearchForm.title')}")
            ng-include(src="'view/cityForm'")
-         accordion-group(heading="#{lingua.CoordSearchForm.title}")
+         accordion-group(heading="#{t('CoordSearchForm.title')}")
            ng-include(src="'view/coordForm'")
     div.workspace
       div.content

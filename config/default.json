@@ -1,4 +1,5 @@
 {
 	"WEATHER": {
+		"defaultPort": 3000
 	}
 }

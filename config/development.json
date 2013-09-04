@@ -1,5 +1,6 @@
 {
 	"WEATHER": {
-		"ForcastApiKey": "e156be94c4a15511cc5a5d0f6c62f4f5"
+		"ForcastApiKey": "e156be94c4a15511cc5a5d0f6c62f4f5",
+		"numCPUs": 1
 	}
 }

@@ -1,15 +1,15 @@
 form
   fieldset
     div.control-group
-      label.control-label(for="longitude") #{lingua.CoordSearchForm.longitudePrompt}
+      label.control-label(for="longitude") #{t('CoordSearchForm.longitudePrompt')}
       div.controls
-        input#longitude.input-large(name="longitude", type="text", placeholder="#{lingua.CoordSearchForm.longitudePlaceholder}")
+        input#longitude.input-large(name="longitude", type="text", placeholder="#{t('CoordSearchForm.longitudePlaceholder')}")
     div.control-group
-      label.control-label(for="latitude") #{lingua.CoordSearchForm.latitudePrompt}
+      label.control-label(for="latitude") #{t('CoordSearchForm.latitudePrompt')}
       div.controls
-        input#latitude.input-large(name="latitude", type="text", placeholder="#{lingua.CoordSearchForm.latitudePlaceholder}")
+        input#latitude.input-large(name="latitude", type="text", placeholder="#{t('CoordSearchForm.latitudePlaceholder')}")
     div.control-group
       label.control-label(for="submit")
       div.controls
-        buttom#submit.btn.btn-primary(name="submit") #{lingua.CoordSearchForm.btnSubmit}
-        buttom#reset.btn.btn-warning(name="reset") #{lingua.CoordSearchForm.btnReset}
+        buttom#submit.btn.btn-primary(name="submit") #{t('CoordSearchForm.btnSubmit')}
+        buttom#reset.btn.btn-warning(name="reset") #{t('CoordSearchForm.btnReset')}

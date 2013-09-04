@@ -1,14 +1,13 @@
 // module dependencies
-var app = require("./app-init");
+var appcfg = require("config").WEATHER;
 var cluster = require('cluster');
 var control = require('strong-cluster-control');
-var http = require('http');
+var pjson = require('./package.json');
+var server = require("./app-init");
 
-var appname = app.locals.appname;
-var env = app.locals.env;
-var numCPUs = app.locals.config.numCPUs || require('os').cpus().length;
-var port = app.get('port');
-var version = app.locals.version;
+var appname = pjson.name;
+var numCPUs = appcfg.numCPUs || require('os').cpus().length;
+var version = pjson.version;
 
 if (cluster.isMaster) {
 
@@ -22,8 +21,8 @@ if (cluster.isMaster) {
 } else {
 
   // server instantiation
-  http.createServer(app).listen(port, function() {
-    console.log('Worker #%d listening on port %d', cluster.worker.id, port);
+  server.start(function() {
+    console.log("Worker #%d started on %s", cluster.worker.id, server.info.uri);
   });
 
 }

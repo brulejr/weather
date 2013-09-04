@@ -9,9 +9,9 @@
   "dependencies": {
     "cluster": "*",
     "config": "*",
-    "express": "3.3.5",
+    "hapi": "*",
+    "i18next": "*",
     "jade": "*",
-    "lingua": "*",
     "log4js": "*",
     "rest": "*",
     "strong-cluster-control": "*"

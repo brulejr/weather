@@ -1,51 +1,25 @@
 // module dependencies
-var api  = require('./api/weather');
-var config = require("config").WEATHER;
-var express = require('express');
-var lingua  = require('lingua');
+var Hapi = require('hapi');
+var appcfg = require("config").WEATHER;
 var log4js = require('log4js');
-var path = require('path');
-var pjson = require('./package.json');
 var routes = require('./routes');
 
 // configure logging
 log4js.configure('log4js.json', {});
 
-// all environments
-var app = express();
-app.configure(function() {
-	app.set('port', process.env.PORT || 3000);
-	app.set('views', __dirname + '/views');
-	app.set('view engine', 'jade');
-
-	app.locals.appname = pjson.name
-	app.locals.config = config;
-	app.locals.env = app.get('env');
-	app.locals.license = pjson.license
-	app.locals.version = pjson.version
-
-  app.use(lingua(app, {
-		defaultLocale: 'en',
-		path: __dirname + '/i18n'
-  }));
-
-	app.use(express.favicon());
-	app.use(express.logger('dev'));
-	app.use(express.bodyParser());
-	app.use(app.router);
-	app.use(express.static(path.join(__dirname, 'public')));
-});
-
-// development only
-if ('development' == app.get('env')) {
-	app.use(express.errorHandler());
-}
-
-// route configuration
-app.get('/', routes.index);
-app.get('/view/:view', routes.view);
-
-app.get('/api/v1/weather/:latitude,:longitude', api.currentWeather);
+// configure server
+var port = process.env.PORT || appcfg.defaultPort;
+var hapicfg = {
+  views: {
+    engines: { jade: 'jade' },
+    path: __dirname + '/views',
+    compileOptions: {
+      pretty: true
+    }
+  }
+};
+var server = new Hapi.Server(port, hapicfg);
+server.addRoutes(routes);
 
 // export application configuration
-module.exports = app;
+module.exports = server

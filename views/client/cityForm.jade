@@ -1,19 +1,19 @@
 form
   fieldset
     div.control-group
-      label.control-label(for="street") #{lingua.CitySearchForm.streetPrompt}
+      label.control-label(for="street") #{t('CitySearchForm.streetPrompt')}
       div.controls
-        input#street.input-large(name="street", type="text", placeholder="#{lingua.CitySearchForm.streetPlaceholder}")
+        input#street.input-large(name="street", type="text", placeholder="#{t('CitySearchForm.streetPlaceholder')}")
     div.control-group
-      label.control-label(for="city") #{lingua.CitySearchForm.cityPrompt}
+      label.control-label(for="city") #{t('CitySearchForm.cityPrompt')}
       div.controls
-        input#city.input-large(name="city", type="text", placeholder="#{lingua.CitySearchForm.cityPlaceholder}")
+        input#city.input-large(name="city", type="text", placeholder="#{t('CitySearchForm.cityPlaceholder')}")
     div.control-group
-      label.control-label(for="state") #{lingua.CitySearchForm.statePrompt}
+      label.control-label(for="state") #{t('CitySearchForm.statePrompt')}
       div.controls
-        input#state.input-large(name="state", type="text", placeholder="#{lingua.CitySearchForm.statePlaceholder}")
+        input#state.input-large(name="state", type="text", placeholder="#{t('CitySearchForm.statePlaceholder')}")
     div.control-group
       label.control-label(for="submit")
       div.controls
-        buttom#submit.btn.btn-primary(name="submit") #{lingua.CitySearchForm.btnSubmit}
-        buttom#reset.btn.btn-warning(name="reset") #{lingua.CitySearchForm.btnReset}
+        buttom#submit.btn.btn-primary(name="submit") #{t('CitySearchForm.btnSubmit')}
+        buttom#reset.btn.btn-warning(name="reset") #{t('CitySearchForm.btnReset')}
