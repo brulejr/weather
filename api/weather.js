@@ -8,9 +8,7 @@ var client = rest.chain(mime)
                  .chain(errorCode, { code: 500 });
 
 exports.currentWeather = function(latitude, longitude, request) {
-  var api = util.format(
-    'https://api.forecast.io/forecast/%s/%s,%s', 
-    config.ForcastApiKey, latitude, longitude);
+  var api = util.format(config.ForcastApiUrl, config.ForcastApiKey, latitude, longitude);
   client({ path: api }).then(
     function(response) {
       var data = response.entity;
