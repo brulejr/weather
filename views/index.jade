@@ -18,7 +18,7 @@ block footer
 block body
   div.page
     div.sidebar
-      div.content
+      div.content(ng-controller="WeatherCtrl")
        accordion
          accordion-group(heading="#{t('CitySearchForm.title')}")
            ng-include(src="'view/cityForm'")
@@ -27,7 +27,7 @@ block body
     div.workspace
       div.content
         tabset
-          tab(ng-repeat="tab in tabs | filter: enabledTab()", active="tab.active")
+          tab(ng-repeat="tab in tabs", active="tab.active")
             tab-heading {{tab.title}}
               span(ui-hide="!tab.closable")
                 a(ng-click="removeTab($index)", href="")

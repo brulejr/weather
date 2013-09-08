@@ -4,26 +4,36 @@ var controllers = angular.module('app.controllers', [ 'restangular' ]);
 
 controllers.controller('PageCtrl', function($scope, $dialog) {
 
+  $scope.$on('CurrentWeatherEvent', function(event, data) {
+    addNewTab(data);
+  });
+
 	$scope.tabs = [ {
-		title : "Home",
-		template : "/view/home",
-		enabled : true,
+		id: 'HOME',
+		title : 'Home',
+		template : '/view/homeTab',
 		closable : false
-	}, {
-		title : "Thing",
-		template : "/view/thing",
-		enabled : true,
-		closable : true
 	} ];
 
-	$scope.enabledTab = function() {
-		return function(friend) {
-			return friend.enabled;
-		};
-	};
+  var addNewTab = function(data) {
+    console.log(data);
+    for (var i = 0; i < $scope.tabs.length; i++) { 
+    	if ($scope.tabs[i].id == data.id) {
+    		$scope.tabs[i].active = true;
+    		return;
+    	}
+    }
+    $scope.tabs.push({
+    	id: data.id,
+      title : 'Weather - ' + data.id,
+      template : '/view/weatherTab',
+      closable : true,
+      active: true
+    });
+  };
 
 	$scope.removeTab = function(index) {
-		$scope.tabs[index].enabled = false;
+		$scope.tabs.splice(index,1);
 	};
 
 	$scope.openAboutDialog = function() {
@@ -50,15 +60,12 @@ controllers.controller('WeatherCtrl', function($scope, WeatherAPI, WeatherUri) {
     longitude: ''
   };
 
-  $scope.currentWeather = {};
-
   $scope.getWeatherFromCoords = function submit() {
   	var criteria = $scope.criteria;
   	var key = criteria.latitude + ',' + criteria.longitude;
   	WeatherAPI.one(WeatherUri, key).get().then(function(response){
-  		$scope.currentWeather = response.data;
-  		var data = response.data;
-  	  console.log($scope.currentWeather);
+  		var $scope = angular.element(document).scope();
+  		$scope.$broadcast('CurrentWeatherEvent', response.data); 
   	},function(response) {
       console.log("Error with status code", response.status);
     });

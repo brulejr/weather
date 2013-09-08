@@ -13,6 +13,7 @@ exports.currentWeather = function(latitude, longitude, request) {
     function(response) {
       var data = response.entity;
       request.reply({
+        "id": latitude + "," + longitude,
         "latitude": latitude,
         "longitude": longitude,
         "timezone": data.timezone,
