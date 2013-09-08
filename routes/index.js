@@ -39,7 +39,6 @@ module.exports = [
     { method: 'GET', path: '/api/v1/weather/{coordinates}', config: {  handler: weatherHandler }},
     { method: 'GET', path: '/view/{view}', config: { handler: viewHandler } },
     { method: 'GET', path: '/{path*}', config: { 
-    	  handler: { 
-    		  directory: { path: './public', listing: false, index: false} } 
-    	}}
+    	handler: {  directory: { path: './public', listing: false, index: false } } 
+    }}
 ];

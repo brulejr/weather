@@ -27,7 +27,7 @@ block body
     div.workspace
       div.content
         tabset
-          tab(ng-repeat="tab in tabs", active="tab.active")
+          tab(ng-repeat="tab in tabs", active="tab.active", select="select(tab)")
             tab-heading {{tab.title}}
               span(ui-hide="!tab.closable")
                 a(ng-click="removeTab($index)", href="")

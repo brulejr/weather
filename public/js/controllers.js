@@ -12,14 +12,22 @@ controllers.controller('PageCtrl', function($scope, $dialog) {
 		id: 'HOME',
 		title : 'Home',
 		template : '/view/homeTab',
-		closable : false
+		closable : false,
+		weather: { }
 	} ];
 
+	$scope.currentWeather = { };
+
+  $scope.select = function(tab) {
+    $scope.currentWeather = tab.weather;
+  };
+
   var addNewTab = function(data) {
-    console.log(data);
     for (var i = 0; i < $scope.tabs.length; i++) { 
     	if ($scope.tabs[i].id == data.id) {
     		$scope.tabs[i].active = true;
+    		$scope.tabs[i].weather = angular.copy(data);
+    		$scope.currentWeather = $scope.tabs[i].weather;
     		return;
     	}
     }
@@ -28,12 +36,14 @@ controllers.controller('PageCtrl', function($scope, $dialog) {
       title : 'Weather - ' + data.id,
       template : '/view/weatherTab',
       closable : true,
-      active: true
+      active: true,
+      weather: angular.copy(data)
     });
+    $scope.currentWeather = angular.copy(data);
   };
 
 	$scope.removeTab = function(index) {
-		$scope.tabs.splice(index,1);
+		$scope.tabs.splice(index, 1);
 	};
 
 	$scope.openAboutDialog = function() {
