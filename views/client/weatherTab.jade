@@ -3,8 +3,32 @@ p Weather report goes here
 table.table.table-striped
   tbody 
     tr
-      td Location
+      td #{t('Weather.location')}
       td {{currentWeather.latitude}}, {{currentWeather.longitude}}
     tr
-      td Time
+      td #{t('Weather.time')}
       td {{currentWeather.time}}
+    tr
+      td #{t('Weather.summary')}
+      td {{currentWeather.summary}}
+    tr
+      td #{t('Weather.temperature')}
+      td {{currentWeather.temperature}} &deg;F
+    tr
+      td #{t('Weather.humidity')}
+      td {{currentWeather.humidity}}
+    tr
+      td #{t('Weather.pressure')}
+      td {{currentWeather.pressure}}
+    tr
+      td #{t('Weather.precipitation')}
+      td {{currentWeather.precipProbability}} - {{currentWeather.precipIntensity}}
+    tr
+      td #{t('Weather.wind')}
+      td {{currentWeather.windSpeed}} {{currentWeather.windBearing}}
+    tr
+      td #{t('Weather.visibility')}
+      td {{currentWeather.visibility}}
+    tr
+      td #{t('Weather.ozone')}
+      td {{currentWeather.ozone}}

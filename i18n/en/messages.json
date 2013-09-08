@@ -34,6 +34,19 @@
     "latitudePlaceholder": "Latitude",
     "btnSubmit": "Get Weather",
     "btnReset": "Reset"
+  },
+
+  "Weather": {
+    "humidity": "Humidity",
+    "location": "Location",
+    "ozone": "Ozone",
+    "precipitation": "Precipitation",
+    "pressure": "Pressure",
+    "summary": "Summary",
+    "temperature": "Temperature",
+    "time": "Time",
+    "visibility": "Visibility",
+    "wind": "Wind"
   }
 
 }
