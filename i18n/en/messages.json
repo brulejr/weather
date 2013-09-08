@@ -38,6 +38,7 @@
 
   "Weather": {
     "humidity": "Humidity",
+    "intensity": "Intensity",
     "location": "Location",
     "ozone": "Ozone",
     "precipitation": "Precipitation",

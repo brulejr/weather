@@ -7,31 +7,80 @@ var util = require('util');
 var client = rest.chain(mime)
                  .chain(errorCode, { code: 500 });
 
+var selectUnits = function(units, us, si, ca, uk) {
+  if (units == "us") {
+    return us;
+  } else if (units == "ca") {
+    return angular.isDefined(ca) ? ca : si;
+  } else if (units == "uk") {
+    return angular.isDefined(uk) ? uk : si;
+  } else {
+    return si;
+  }
+}
+
+var degToCompass = function(degrees) {
+  var words = ["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
+  return words[Math.round(degrees / 22.5) % 16];
+}
+
 exports.currentWeather = function(latitude, longitude, request) {
   var api = util.format(config.ForcastApiUrl, config.ForcastApiKey, latitude, longitude);
   client({ path: api }).then(
     function(response) {
       var data = response.entity;
+      var units = data.flags.units;
+      console.log(units);
       request.reply({
         "id": latitude + "," + longitude,
         "latitude": latitude,
         "longitude": longitude,
         "timezone": data.timezone,
-        "time": data.currently.time,
+        "time": new Date(data.currently.time).toTimeString(),
         "summary": data.currently.summary,
         "icon": data.currently.icon,
-        "precipIntensity": data.currently.precipIntensity,
-        "precipProbability": data.currently.precipProbability,
-        "temperature": data.currently.temperature,
-        "apparentTemperature": data.currently.apparentTemperature,
-        "dewPoint": data.currently.dewPoint,
-        "windSpeed": data.currently.windSpeed,
-        "windBearing": data.currently.windBearing,
+        "precipIntensity": {
+          "value": data.currently.precipIntensity,
+          "units": selectUnits(units, "in/h", "mm/h")
+        },
+        "precipProbability": {
+          "value": Math.round(data.currently.precipProbability * 100),
+          "units": "%"
+        },
+        "temperature": {
+          "value": data.currently.temperature,
+          "units": selectUnits(units, "F", "C")
+        },
+        "apparentTemperature": {
+          "value": data.currently.apparentTemperature,
+          "units": selectUnits(units, "F", "C")
+        },
+        "dewPoint": {
+          "value": data.currently.dewPoint,
+          "units": selectUnits(units, "F", "C")
+        },
+        "windSpeed": {
+          "value": data.currently.windSpeed,
+          "units": selectUnits(units, "mph", "mps", "kph", "mph")
+        },
+        "windBearing": degToCompass(data.currently.windBearing),
         "cloudCover": data.currently.cloudCover,
-        "humidity": data.currently.humidity,
-        "pressure": data.currently.pressure,
-        "visibility": data.currently.visibility,
-        "ozone": data.currently.ozone
+        "humidity": {
+          "value": Math.round(data.currently.humidity * 100),
+          "units": "%"
+        },
+        "pressure": {
+          "value": data.currently.pressure,
+          "units": selectUnits(units, "mb", "mb")
+        },
+        "visibility": {
+          "value": data.currently.visibility,
+          "units": selectUnits(units, "mi", "km")
+        },
+        "ozone": {
+          "value": data.currently.ozone,
+          "units": "Dobson"
+        }
       });
     },
     function(response) {

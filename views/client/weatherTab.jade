@@ -13,22 +13,23 @@ table.table.table-striped
       td {{currentWeather.summary}}
     tr
       td #{t('Weather.temperature')}
-      td {{currentWeather.temperature}} &deg;F
+      td {{currentWeather.temperature.value}} &deg;{{currentWeather.temperature.units}}
     tr
       td #{t('Weather.humidity')}
-      td {{currentWeather.humidity}}
+      td {{currentWeather.humidity.value}}{{currentWeather.humidity.units}}
     tr
       td #{t('Weather.pressure')}
-      td {{currentWeather.pressure}}
+      td {{currentWeather.pressure.value}} {{currentWeather.pressure.units}}
     tr
       td #{t('Weather.precipitation')}
-      td {{currentWeather.precipProbability}} - {{currentWeather.precipIntensity}}
+      td {{currentWeather.precipProbability.value}}{{currentWeather.precipProbability.units}}
+        | (#{t('Weather.intensity')} {{currentWeather.precipIntensity.value}} {{currentWeather.precipIntensity.units}})
     tr
       td #{t('Weather.wind')}
-      td {{currentWeather.windSpeed}} {{currentWeather.windBearing}}
+      td {{currentWeather.windSpeed.value}} {{currentWeather.windSpeed.units}} {{currentWeather.windBearing}}
     tr
       td #{t('Weather.visibility')}
-      td {{currentWeather.visibility}}
+      td {{currentWeather.visibility.value}} {{currentWeather.visibility.units}}
     tr
       td #{t('Weather.ozone')}
-      td {{currentWeather.ozone}}
+      td {{currentWeather.ozone.value}} {{currentWeather.ozone.units}}
