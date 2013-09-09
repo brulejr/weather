@@ -81,4 +81,7 @@ controllers.controller('WeatherCtrl', function($scope, WeatherAPI, WeatherUri) {
     });
   };
 
+  $scope.CitySearchAccordion = false;
+  $scope.CoordSearchAccordion = true;
+
 });

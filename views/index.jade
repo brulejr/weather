@@ -20,9 +20,9 @@ block body
     div.sidebar
       div.content(ng-controller="WeatherCtrl")
        accordion
-         accordion-group(heading="#{t('CitySearchForm.title')}")
+         accordion-group(heading="#{t('CitySearchForm.title')}", is-open="CitySearchAccordion")
            ng-include(src="'view/cityForm'")
-         accordion-group(heading="#{t('CoordSearchForm.title')}")
+         accordion-group(heading="#{t('CoordSearchForm.title')}", is-open="CoordSearchAccordion")
            ng-include(src="'view/coordForm'")
     div.workspace
       div.content
