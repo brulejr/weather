@@ -1,15 +1,15 @@
-form
+form(name="CoordSearchForm")
   fieldset
     div.control-group
       label.control-label(for="latitude") #{t('CoordSearchForm.latitudePrompt')}
       div.controls
-        input#latitude.input-large(name="latitude", type="text", ng-model="coordCriteria.latitude", placeholder="#{t('CoordSearchForm.latitudePlaceholder')}")
+        input#latitude.input-large(name="latitude", type="text", ng-model="coordCriteria.latitude", placeholder="#{t('CoordSearchForm.latitudePlaceholder')}", required="true", smart-float="true")
     div.control-group
       label.control-label(for="longitude") #{t('CoordSearchForm.longitudePrompt')}
       div.controls
-        input#longitude.input-large(name="longitude", type="text", ng-model="coordCriteria.longitude", placeholder="#{t('CoordSearchForm.longitudePlaceholder')}")
+        input#longitude.input-large(name="longitude", type="text", ng-model="coordCriteria.longitude", placeholder="#{t('CoordSearchForm.longitudePlaceholder')}", required="true", smart-float="true")
     div.control-group
       label.control-label(for="submit")
       div.controls
-        buttom#submit.btn.btn-primary(name="submit", ng-click='getWeatherForCoords()') #{t('CoordSearchForm.btnSubmit')}
+        buttom#submit.btn.btn-primary(name="submit", ng-click='getWeatherForCoords()', ng-disabled="CoordSearchForm.$invalid") #{t('CoordSearchForm.btnSubmit')}
         buttom#reset.btn.btn-warning(name="reset", ng-click='resetCoordCriteria()') #{t('CoordSearchForm.btnReset')}

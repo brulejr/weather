@@ -30,7 +30,6 @@ exports.currentWeather = function(latitude, longitude, request) {
     function(response) {
       var data = response.entity;
       var units = data.flags.units;
-      console.log(units);
       request.reply({
         "id": latitude + "," + longitude,
         "latitude": latitude,

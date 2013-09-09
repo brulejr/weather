@@ -87,12 +87,10 @@ controllers.controller('WeatherCtrl', function($scope, WeatherAPI, WeatherUri) {
   };
 
   $scope.resetCityCriteria = function() {
-    console.log('resetCityCriteria');
     $scope.cityCriteria = angular.copy(cityCriteriaMaster);
   }
 
   $scope.resetCoordCriteria = function() {
-    console.log('resetCoordCriteria');
     $scope.coordCriteria = angular.copy(coordCriteriaMaster);
   }
 
