@@ -3,13 +3,13 @@ form
     div.control-group
       label.control-label(for="latitude") #{t('CoordSearchForm.latitudePrompt')}
       div.controls
-        input#latitude.input-large(name="latitude", type="text", ng-model="criteria.latitude", placeholder="#{t('CoordSearchForm.latitudePlaceholder')}")
+        input#latitude.input-large(name="latitude", type="text", ng-model="coordCriteria.latitude", placeholder="#{t('CoordSearchForm.latitudePlaceholder')}")
     div.control-group
       label.control-label(for="longitude") #{t('CoordSearchForm.longitudePrompt')}
       div.controls
-        input#longitude.input-large(name="longitude", type="text", ng-model="criteria.longitude", placeholder="#{t('CoordSearchForm.longitudePlaceholder')}")
+        input#longitude.input-large(name="longitude", type="text", ng-model="coordCriteria.longitude", placeholder="#{t('CoordSearchForm.longitudePlaceholder')}")
     div.control-group
       label.control-label(for="submit")
       div.controls
-        buttom#submit.btn.btn-primary(name="submit", ng-click="getWeatherFromCoords()") #{t('CoordSearchForm.btnSubmit')}
-        buttom#reset.btn.btn-warning(name="reset") #{t('CoordSearchForm.btnReset')}
+        buttom#submit.btn.btn-primary(name="submit", ng-click='getWeatherForCoords()') #{t('CoordSearchForm.btnSubmit')}
+        buttom#reset.btn.btn-warning(name="reset", ng-click='resetCoordCriteria()') #{t('CoordSearchForm.btnReset')}

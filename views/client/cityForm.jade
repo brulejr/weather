@@ -3,17 +3,17 @@ form
     div.control-group
       label.control-label(for="street") #{t('CitySearchForm.streetPrompt')}
       div.controls
-        input#street.input-large(name="street", type="text", placeholder="#{t('CitySearchForm.streetPlaceholder')}")
+        input#street.input-large(name="street", type="text", ng-model="cityCriteria.street", placeholder="#{t('CitySearchForm.streetPlaceholder')}")
     div.control-group
       label.control-label(for="city") #{t('CitySearchForm.cityPrompt')}
       div.controls
-        input#city.input-large(name="city", type="text", placeholder="#{t('CitySearchForm.cityPlaceholder')}")
+        input#city.input-large(name="city", type="text", ng-model="cityCriteria.city", placeholder="#{t('CitySearchForm.cityPlaceholder')}")
     div.control-group
       label.control-label(for="state") #{t('CitySearchForm.statePrompt')}
       div.controls
-        input#state.input-large(name="state", type="text", placeholder="#{t('CitySearchForm.statePlaceholder')}")
+        input#state.input-large(name="state", type="text", ng-model="cityCriteria.state" placeholder="#{t('CitySearchForm.statePlaceholder')}")
     div.control-group
       label.control-label(for="submit")
       div.controls
-        buttom#submit.btn.btn-primary(name="submit") #{t('CitySearchForm.btnSubmit')}
-        buttom#reset.btn.btn-warning(name="reset") #{t('CitySearchForm.btnReset')}
+        buttom#submit.btn.btn-primary(name="submit", ng-click='getWeatherForCity()') #{t('CitySearchForm.btnSubmit')}
+        buttom#reset.btn.btn-warning(name="reset", ng-click='resetCityCriteria()') #{t('CitySearchForm.btnReset')}

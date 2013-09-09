@@ -65,14 +65,19 @@ controllers.controller('PageCtrl', function($scope, $dialog) {
 controllers.constant('WeatherUri', 'weather');
 controllers.controller('WeatherCtrl', function($scope, WeatherAPI, WeatherUri) {
 
-  $scope.criteria = {
-    latitude: '',
-    longitude: ''
-  };
+  var cityCriteriaMaster = {};
+  var coordCriteriaMaster = {};
 
-  $scope.getWeatherFromCoords = function submit() {
-  	var criteria = $scope.criteria;
-  	var key = criteria.latitude + ',' + criteria.longitude;
+  $scope.cityCriteria = {};
+  $scope.coordCriteria = {};
+
+  $scope.getWeatherForCity = function submit() {
+    cityCriteriaMaster = angular.copy($scope.cityCriteria);
+  }
+
+  $scope.getWeatherForCoords = function submit() {
+    coordCriteriaMaster = angular.copy($scope.coordCriteria);
+  	var key = $scope.coordCriteria.latitude + ',' + $scope.coordCriteria.longitude;
   	WeatherAPI.one(WeatherUri, key).get().then(function(response){
   		var $scope = angular.element(document).scope();
   		$scope.$broadcast('CurrentWeatherEvent', response.data); 
@@ -80,6 +85,16 @@ controllers.controller('WeatherCtrl', function($scope, WeatherAPI, WeatherUri) {
       console.log("Error with status code", response.status);
     });
   };
+
+  $scope.resetCityCriteria = function() {
+    console.log('resetCityCriteria');
+    $scope.cityCriteria = angular.copy(cityCriteriaMaster);
+  }
+
+  $scope.resetCoordCriteria = function() {
+    console.log('resetCoordCriteria');
+    $scope.coordCriteria = angular.copy(coordCriteriaMaster);
+  }
 
   $scope.CitySearchAccordion = false;
   $scope.CoordSearchAccordion = true;
