@@ -1,4 +1,4 @@
-form#CitySearchForm
+form#CitySearchForm(name="CitySearchForm")
   fieldset
     div.control-group
       label.control-label(for="street") #{t('CitySearchForm.streetPrompt')}
@@ -7,13 +7,13 @@ form#CitySearchForm
     div.control-group
       label.control-label(for="city") #{t('CitySearchForm.cityPrompt')}
       div.controls
-        input.input_city.input-large(name="city", type="text", ng-model="cityCriteria.city", placeholder="#{t('CitySearchForm.cityPlaceholder')}")
+        input.input_city.input-large(name="city", type="text", ng-model="cityCriteria.city", placeholder="#{t('CitySearchForm.cityPlaceholder')}", required="true")
     div.control-group
       label.control-label(for="state") #{t('CitySearchForm.statePrompt')}
       div.controls
-        input.input_state.input-large(name="state", type="text", ng-model="cityCriteria.state" placeholder="#{t('CitySearchForm.statePlaceholder')}")
+        input.input_state.input-large(name="state", type="text", ng-model="cityCriteria.state", placeholder="#{t('CitySearchForm.statePlaceholder')}", required="true")
     div.control-group
       label.control-label(for="submit")
       div.controls
-        buttom.btn_submit.btn.btn-primary(name="submit", ng-click='getWeatherForCity()') #{t('CitySearchForm.btnSubmit')}
-        buttom.btn_reset.btn.btn-warning(name="reset", ng-click='resetCityCriteria()') #{t('CitySearchForm.btnReset')}
+        buttom.btn_submit.btn.btn-primary(ng-click='getWeatherForCity()', ng-disabled="CitySearchForm.$invalid") #{t('CitySearchForm.btnSubmit')}
+        buttom.btn_reset.btn.btn-warning(ng-click='resetCityCriteria()', ng-disabled="isCityCriteriaUnchanged()") #{t('CitySearchForm.btnReset')}

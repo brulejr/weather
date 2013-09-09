@@ -86,6 +86,14 @@ controllers.controller('WeatherCtrl', function($scope, WeatherAPI, WeatherUri) {
     });
   };
 
+  $scope.isCityCriteriaUnchanged = function() {
+    return angular.equals($scope.cityCriteria, cityCriteriaMaster);
+  };
+
+  $scope.isCoordCriteriaUnchanged = function() {
+    return angular.equals($scope.coordCriteria, coordCriteriaMaster);
+  };
+
   $scope.resetCityCriteria = function() {
     $scope.cityCriteria = angular.copy(cityCriteriaMaster);
   }

@@ -11,5 +11,5 @@ form#CoordSearchForm(name="CoordSearchForm")
     div.control-group
       label.control-label(for="submit")
       div.controls
-        button.btn_submit.btn.btn-primary(name="submit", ng-click='getWeatherForCoords()', ng-disabled="CoordSearchForm.$invalid") #{t('CoordSearchForm.btnSubmit')}
-        button.btn_reset.btn.btn-warning(name="reset", ng-click='resetCoordCriteria()') #{t('CoordSearchForm.btnReset')}
+        button.btn_submit.btn.btn-primary(ng-click='getWeatherForCoords()', ng-disabled="CoordSearchForm.$invalid") #{t('CoordSearchForm.btnSubmit')}
+        button.btn_reset.btn.btn-warning(ng-click='resetCoordCriteria()', ng-disabled="isCoordCriteriaUnchanged()") #{t('CoordSearchForm.btnReset')}
