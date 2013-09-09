@@ -57,6 +57,16 @@ body>section>.page>.sidebar>.content {
   text-decoration: none;
 }
 
+#CitySearchForm input,
+#CoordSearchForm input {
+  padding: 4px 9px;
+}
+
+#CitySearchForm .btn_reset,
+#CoordSearchForm .btn_reset {
+  float: right;
+}
+
 body>section>.page>.workspace>.content {
 }
 .tabbable>.nav-tabs>li>a {
