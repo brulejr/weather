@@ -1,7 +1,5 @@
 // module dependencies
 var appcfg = require("config").WEATHER;
-var cluster = require('cluster');
-var control = require('strong-cluster-control');
 var pjson = require('./package.json');
 var server = require("./app-init");
 
