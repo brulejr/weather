@@ -94,13 +94,22 @@ controllers.controller('WeatherCtrl', function($scope, WeatherAPI, WeatherUri) {
     return angular.equals($scope.coordCriteria, coordCriteriaMaster);
   };
 
-  $scope.resetCityCriteria = function() {
+  $scope.resetCityCriteria = function(form) {
     $scope.cityCriteria = angular.copy(cityCriteriaMaster);
-  }
+    resetField(form['city']);
+    resetField(form['state']);
+  };
 
-  $scope.resetCoordCriteria = function() {
+  $scope.resetCoordCriteria = function(form) {
     $scope.coordCriteria = angular.copy(coordCriteriaMaster);
-  }
+    resetField(form['latitude']);
+    resetField(form['longitude']);
+  };
+
+  var resetField = function(field) {
+      field.$pristine = true;
+      field.$dirty = false;
+  };
 
   $scope.CitySearchAccordion = false;
   $scope.CoordSearchAccordion = true;

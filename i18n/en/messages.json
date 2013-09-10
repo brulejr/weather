@@ -16,8 +16,6 @@
 
   "CitySearchForm": {
     "title": "By City Name",
-    "streetPrompt": "Street",
-    "streetPlaceholder": "Street Address",
     "cityPrompt": "City",
     "cityPlaceholder": "City",
     "statePrompt": "State",
@@ -30,8 +28,10 @@
     "title": "By Longitude / Latitude",
     "longitudePrompt": "Longitude",
     "longitudePlaceholder": "Longitude",
+    "longitude-error-float": "Longitude must be numeric",
     "latitudePrompt": "Latitude",
     "latitudePlaceholder": "Latitude",
+    "latitude-error-float": "Latitude must be numeric",
     "btnSubmit": "Get Weather",
     "btnReset": "Reset"
   },
@@ -46,6 +46,7 @@
     "summary": "Summary",
     "temperature": "Temperature",
     "time": "Time",
+    "timezone": "Time Zone",
     "visibility": "Visibility",
     "wind": "Wind"
   }

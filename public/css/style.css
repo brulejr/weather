@@ -57,22 +57,34 @@ body>section>.page>.sidebar>.content {
   text-decoration: none;
 }
 
-#CitySearchForm input,
-#CoordSearchForm input {
+.search-form input {
   padding: 4px 9px;
+  margin-bottom: 0px;
 }
 
-#CitySearchForm .btn_reset,
-#CoordSearchForm .btn_reset {
+.search-form .btn_reset {
   float: right;
 }
 
-input.ng-invalid {
+.search-form input.ng-invalid {
   border: 1px solid #AB1F20;
   background-color: #FDF3E7;
 }
-input.ng-valid {
+.search-form input.ng-valid {
   border: 1px solid green;
+}
+
+.search-form div.error {
+  background-color: red;
+  border: 1px solid red;
+  padding: 2px 10px;
+  -webkit-border-radius: 0px 0px 4px 4px;
+  -moz-border-radius: 0px 0px 4px 4px;
+  border-radius: 0px 0px 4px 4px; 
+}
+.search-form div.error small {
+  color: white;
+  font-weight: bold;
 }
 
 body>section>.page>.workspace>.content {
