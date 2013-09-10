@@ -67,6 +67,14 @@ body>section>.page>.sidebar>.content {
   float: right;
 }
 
+input.ng-invalid {
+  border: 1px solid #AB1F20;
+  background-color: #FDF3E7;
+}
+input.ng-valid {
+  border: 1px solid green;
+}
+
 body>section>.page>.workspace>.content {
 }
 .tabbable>.nav-tabs>li>a {
