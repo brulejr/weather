@@ -32,13 +32,12 @@
 	'use strict';
 
   // module dependencies
-  var appcfg = require("config").WEATHER;
-  var pjson = require('./package.json');
+  var pkginfo = require('pkginfo')(module, 'name', 'version');
   var server = require("./app-init");
 
   // server instantiation
-  var appname = pjson.name;
-  var version = pjson.version;
+  var appname = module.exports.name;
+  var version = module.exports.version;
   server.start(function() {
     console.log('Starting %s v%s (s) on ', appname, version, server.info.uri);
   });
