@@ -1,6 +1,7 @@
 var i18n = require('i18next');
 var pjson = require('../package.json');
-var weather = require('../api/weather.js');
+var geocode = requireLib('/api/geocode');
+var weather = requireLib('/api/weather');
 
 // configure i18n
 i18n.init({

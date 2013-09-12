@@ -16,7 +16,8 @@
     "log4js": "*",
     "lout": "0.5.0",
     "rest": "*",
-    "tv": "0.5.0"
+    "tv": "0.5.0",
+    "weather": "/lib/api/weather/weather.js"
   },
   "devDependencies": {
     "nodemon": "*"
